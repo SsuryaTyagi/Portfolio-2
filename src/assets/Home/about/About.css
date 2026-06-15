@@ -1,0 +1,51 @@
+.about {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  /* padding: 100px 8%; */
+}
+
+.about-left{
+  display:flex;
+  justify-content:center;
+}
+
+.about-left img{
+  width:420px;
+  padding-bottom: -200px;
+  filter:drop-shadow(0 0 40px rgba(232,197,71,.3));
+}
+
+.about-tag{
+  color:#e8c547;
+  letter-spacing:4px;
+  font-size:12px;
+}
+
+.about h2{
+  font-size:70px;
+  margin:20px 0;
+  font-family:'Bebas Neue';
+}
+
+.about h2 span{
+  color:#e8c547;
+}
+
+.about p{
+  color:#999;
+  line-height:1.8;
+  max-width:500px;
+}
+
+.about-stats{
+  display:flex;
+  gap:40px;
+  margin-top:40px;
+}
+
+.about-stats h3{
+  color:#e8c547;
+  font-size:45px;
+}

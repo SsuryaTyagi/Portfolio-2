@@ -1,4 +1,3 @@
-
 /* ===========================
    SURYA TYAGI PORTFOLIO CSS
    =========================== */
@@ -495,4 +494,49 @@ nav {
   .scroll-indicator {
     right: 24px;
   }
+}
+
+/* === BACKGROUND REMOVED PHOTO STYLES === */
+.hero-right {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100vh;
+  background: #0a0a0a;
+}
+
+.photo-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 480px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hero-photo{
+  width:100%;
+  max-height:95vh;
+  object-fit:contain;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-20px);
+  }
+}
+
+/* Remove old overlays for PNG */
+.photo-overlay,
+.photo-overlay-bottom {
+  display: none;
 }
