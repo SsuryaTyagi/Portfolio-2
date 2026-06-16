@@ -1,51 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
 .about {
-  min-height: 100vh;
+  background: #0a0a0a;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  /* padding: 100px 8%; */
+  gap: 0;
+  padding: 0px 8%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-.about-left{
-  display:flex;
-  justify-content:center;
+/* Thin vertical separator line */
+.about::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 1px;
+  height: 70%;
+  background: linear-gradient(to bottom, transparent, rgba(232,197,71,.08), transparent);
 }
 
-.about-left img{
-  width:420px;
-  padding-bottom: -200px;
-  filter:drop-shadow(0 0 40px rgba(232,197,71,.3));
+/* ── LEFT — image ── */
+.about-left {
+  display: flex;
+  /* height: 300px; */
+  justify-content: center;
+  align-items: center;
+  padding-right: 500px;
 }
 
-.about-tag{
-  color:#e8c547;
-  letter-spacing:4px;
-  font-size:12px;
+.about-img-wrapper {
+  position: relative;
+  width: clamp(220px, 32vw, 400px);
+  /* IMPORTANT: no background-color here */
+  opacity: 0; /* JS animates to 1 */
 }
 
-.about h2{
-  font-size:70px;
-  margin:20px 0;
-  font-family:'Bebas Neue';
+.about-img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 60px rgba(232,197,71,.18));
+  position: relative;
+  z-index: 2;
 }
 
-.about h2 span{
-  color:#e8c547;
+/* Subtle golden corner accent — not a full box */
+.about-img-accent {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  width: 55%;
+  height: 55%;
+  border-right: 1.5px solid rgba(232,197,71,.25);
+  border-bottom: 1.5px solid rgba(232,197,71,.25);
+  z-index: 1;
+  pointer-events: none;
 }
 
-.about p{
-  color:#999;
-  line-height:1.8;
-  max-width:500px;
+/* ── RIGHT — content ── */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  padding-left: 20px;
+  padding-top: 150px;
 }
 
-.about-stats{
-  display:flex;
-  gap:40px;
-  margin-top:40px;
+/* Each child starts hidden — GSAP reveals them */
+/* .about-tag,
+.about-heading,
+.about-desc,
+.skill-pills,
+.about-stats-row,
+.about-cta {
+  opacity: 1;
+} */
+
+.about-tag {
+  color: #e8c547;
+  letter-spacing: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
-.about-stats h3{
-  color:#e8c547;
-  font-size:45px;
+.about-heading {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(48px, 5.5vw, 76px);
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.about-heading-accent { color: #e8c547; }
+
+.about-desc {
+  color: #888;
+  line-height: 1.85;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: 'Space Grotesk', sans-serif;
+  max-width: 460px;
+}
+
+/* ── Skill pills ── */
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.skill-pill {
+  display: inline-block;
+  padding: 5px 14px;
+  border: 1px solid rgba(232,197,71,.3);
+  border-radius: 2px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #e8c547;
+  background: rgba(232,197,71,.04);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  transition: background .3s, border-color .3s;
+  /* start hidden for GSAP scale animation */
+  transform: scale(0.6);
+}
+
+.skill-pill:hover {
+  background: rgba(232,197,71,.1);
+  border-color: #e8c547;
+}
+
+/* ── Stats ── */
+.about-stats-row {
+  display: flex;
+  gap: 36px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  flex-wrap: wrap;
+}
+
+.about-stat { display: flex; flex-direction: column; gap: 4px; }
+
+.stat-num-about {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 44px;
+  color: #e8c547;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.stat-label-about {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #555;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ── CTA ── */
+.about-cta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-top: 4px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .about {
+    grid-template-columns: 1fr;
+    padding: 0px 6%;
+    gap: 50px;
+    text-align: center;
+    min-height: auto;
+  }
+  .about::before { display: none; }
+  .about-left {
+    padding-right: 0;
+    order: -1;
+  }
+  .about-img-wrapper {
+    width: clamp(180px, 55vw, 300px);
+    margin: 0 auto;
+  }
+  .about-img-accent { display: none; }
+  .about-right { padding-left: 0; align-items: center; }
+  .about-desc { text-align: center; margin: 0 auto; }
+  .skill-pills { justify-content: center; }
+  .about-stats-row { justify-content: center; }
+  .about-cta { justify-content: center; }
+}
+
+@media (max-width: 600px) {
+  /* .about { padding: 60px 6% 80px; gap: 36px; } */
+  .about-heading { font-size: clamp(40px, 11vw, 56px); }
+  .about-stats-row { gap: 24px; }
+  .stat-num-about { font-size: 36px; }
+  .about-cta { flex-direction: column; align-items: stretch; }
+  .about-cta .btn-primary,
+  .about-cta .btn-secondary { text-align: center; justify-content: center; }
+  .about-right {padding: 0;}
 }

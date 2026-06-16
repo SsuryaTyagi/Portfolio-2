@@ -1,60 +1,72 @@
-import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 export default function Navbar() {
   const navRef = useRef();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     gsap.from(navRef.current, {
-      y: -100,
-      opacity: 0,
-      duration: 1,
-      ease: "power4.out",
+      y: -100, opacity: 0, duration: 1, ease: "power4.out",
     });
-
     gsap.from(".nav-links li", {
-      y: -30,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.15,
-      delay: 0.5,
-      ease: "back.out(1.7)",
+      y: -30, opacity: 0, duration: 0.8,
+      stagger: 0.15, delay: 0.5, ease: "back.out(1.7)",
     });
+
+    /* Shrink nav on scroll */
+    const handleScroll = () => {
+      if (window.scrollY > 60) {
+        navRef.current.classList.add("nav-scrolled");
+      } else {
+        navRef.current.classList.remove("nav-scrolled");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  /* Smooth scroll to section */
+  const scrollTo = (id) => {
+    setMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <nav ref={navRef}>
-      <Link to="/" className="nav-logo">
-        SURYA<span>.</span>
-      </Link>
+    <>
+      <nav ref={navRef}>
+        <a href="/" className="nav-logo">SURYA<span>.</span></a>
 
-      <ul className="nav-links">
-        <li>
-          <Link to="/" smooth={true} duration={800}>
-            Home
-          </Link>
-        </li>
+        {/* Hamburger — mobile only */}
+        <button
+          className="nav-hamburger"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span /><span /><span />
+        </button>
 
-        <li>
-          <Link to="/about" smooth={true} duration={800}>
-            About
-          </Link>
-        </li>
+        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+          {["home","about","projects","skills"].map((id) => (
+            <li key={id}>
+              <button onClick={() => scrollTo(id)}>
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </button>
+            </li>
+          ))}
+          <li>
+            <button onClick={() => scrollTo("contact")} className="nav-cta">
+              Hire Me
+            </button>
+          </li>
+        </ul>
+      </nav>
 
-        <li>
-          <Link to="/projects">Projects</Link>
-        </li>
-
-        <li>
-          <Link to="/skills">Skills</Link>
-        </li>
-
-        <li>
-          <Link to="/contact" className="nav-cta">
-            Hire Me
-          </Link>
-        </li>
-      </ul>
-    </nav>
+      {/* Overlay — closes menu on click */}
+      {menuOpen && (
+        <div className="nav-overlay" onClick={() => setMenuOpen(false)} />
+      )}
+    </>
   );
 }
