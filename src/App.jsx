@@ -1,8 +1,9 @@
 import React from 'react'
 import Navbar from './assets/Component/Navbar';
 import Home from './assets/Home/Home'
-import About from './assets/Home/about/About'
 import "../src/assets/Home/Home.css"
+import About from './assets/about/About';
+import Projects from './assets/project/Project';
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <Navbar />
       <Home />
       <About />
+      <Projects/>
     </>
   )
 }
