@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const PROJECTS = [
   {
     id: "shop",
+    image: "/Screenshot 2026-06-05 195004.png",
     tag: "Live · Client Project",
     title: "Full Stack Food Ordering App",
     desc: "End-to-end food ordering platform built for a real local business client. Processes live payments via Razorpay and includes complete authentication, email verification, and cloud media storage.",
@@ -27,12 +28,13 @@ const PROJECTS = [
       "JWT",
       "Razorpay",
     ],
-    liveUrl: "https://web-shopfrontend.vercel.app",
-    codeUrl: "https://github.com/SsuryaTyagi",
+    liveUrl: "https://web-shop-frontend.vercel.app/",
+    codeUrl: "https://github.com/SsuryaTyagi/web-shop-frontend",
     status: "live",
   },
   {
     id: "face",
+    image: "/Screenshot 2026-06-18 163111.png",
     tag: "AI / Browser-based",
     title: "Face Expression Music Recommender",
     desc: "Detects a user's facial expression in real-time via webcam using MediaPipe AI and recommends songs based on the detected mood — happy, sad, or normal.",
@@ -52,7 +54,7 @@ const PROJECTS = [
       "Redis",
     ],
     liveUrl: null,
-    codeUrl: "https://github.com/SsuryaTyagi",
+    codeUrl: "https://github.com/SsuryaTyagi/FaceExpression-Frentend",
     status: "live",
   },
   {
@@ -129,19 +131,8 @@ export default function Projects() {
             key={p.id}
           >
             <div className="project-card-top">
-              {p.video ? (
-                <video
-                  className="project-media"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                >
-                  <source src={p.video} type="video/mp4" />
-                </video>
-              ) : (
-                <img src={p.image} alt={p.title} className="project-media" />
-              )}
+              <img src={p.image} alt={p.title} className="project-media" />
+              
               <span className="project-tag">{p.tag}</span>
               {p.status === "underway" && <span className="status-dot" />}
             </div>

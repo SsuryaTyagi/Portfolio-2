@@ -111,9 +111,11 @@
 
 .project-card-top {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
+  flex-direction:column-reverse;
+  gap: 10px;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* margin-bottom: 22px; */
 }
 
 /* ===========================
