@@ -4,6 +4,7 @@ import Home from './assets/Home/Home'
 import "../src/assets/Home/Home.css"
 import About from './assets/about/About';
 import Projects from './assets/project/Project';
+import Skills from './assets/skills/Skill';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Home />
       <About />
       <Projects/>
+      <Skills />
     </>
   )
 }
