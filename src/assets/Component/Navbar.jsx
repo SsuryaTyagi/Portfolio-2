@@ -48,7 +48,7 @@ export default function Navbar() {
         </button>
 
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-          {["home","about","projects","skills"].map((id) => (
+          {["home","about","projects","skills","contact"].map((id) => (
             <li key={id}>
               <button onClick={() => scrollTo(id)}>
                 {id.charAt(0).toUpperCase() + id.slice(1)}
