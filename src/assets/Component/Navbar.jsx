@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <>
       <nav ref={navRef}>
-        <a href="/" className="nav-logo">SURYA<span>.</span></a>
+        <a href="/" className="nav-logo">SURYA TYAGI<span>.</span></a>
 
         {/* Hamburger — mobile only */}
         <button

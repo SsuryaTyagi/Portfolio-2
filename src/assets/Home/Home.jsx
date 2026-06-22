@@ -87,7 +87,7 @@ export default function Home() {
       <div className="hero-right">
         <div className="photo-container">
           <img
-            src="/WhatsApp_Image_2026-06-03_at_12.07.08_AM-removebg-preview.png"
+            src="\Gemini_Generated_Image_sicp3fsicp3fsicp-removebg-preview.png"
             alt="Surya Tyagi"
             className="hero-photo"
           />

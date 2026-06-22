@@ -342,12 +342,6 @@ nav.nav-scrolled {
   max-height: 90vh;
   object-fit: contain;
   object-position: bottom center;
-  filter: grayscale(100%) contrast(1.1);
-  transition: filter 0.5s ease;
-}
-
-.hero-photo:hover {
-  filter: grayscale(0%) contrast(1);
 }
 
 /* Stats */
