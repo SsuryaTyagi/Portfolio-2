@@ -66,7 +66,7 @@ export default function Home() {
           <strong>production-ready</strong> MERN applications.
         </p>
         <div className="hero-actions">
-          <a href="/Surya_Tyagi_Cv.pdf" download className="btn-primary">↓ Download CV</a>
+          <a href="\Surya Tyagi Cv 5-26.pdf" download className="btn-primary">↓ Download CV</a>
           <button onClick={() => document.getElementById("projects")
             ?.scrollIntoView({ behavior:"smooth" })} className="btn-secondary">
             View Projects →
@@ -93,7 +93,7 @@ export default function Home() {
           />
         </div>
         <div className="hero-stats">
-          {[["2+","Projects"],["5+","Tech Stack"],["100%","Passion"]].map(([n,l]) => (
+          {[["15+","Projects"],["5+","Tech Stack"],["100%","Passion"]].map(([n,l]) => (
             <div className="stat-item" key={l}>
               <div className="stat-num">{n}</div>
               <div className="stat-label">{l}</div>

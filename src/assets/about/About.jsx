@@ -109,7 +109,7 @@ export default function About() {
         </div>
 
         <div className="about-cta">
-          <a href="/Surya_Tyagi_Cv.pdf" download className="btn-primary">↓ Download CV</a>
+          <a href="\Surya Tyagi Cv 5-26.pdf" download className="btn-primary">↓ Download CV</a>
           <a href="mailto:2040surya@gmail.com" className="btn-secondary">Say Hello →</a>
         </div>
       </div>
