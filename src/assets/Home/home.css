@@ -320,7 +320,7 @@ nav.nav-scrolled {
 
 .photo-container {
   position: absolute;
-  bottom: 0;
+  bottom: -100px;
   left: 25%;
   transform: translateX(20%);
   transform: translateY(-10%);
