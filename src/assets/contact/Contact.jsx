@@ -9,9 +9,9 @@ import "../contact/Contact.css";
 gsap.registerPlugin(ScrollTrigger);
 
 /* ── EmailJS config — replace with your own from emailjs.com ── */
-const SERVICE_ID = "YOUR_SERVICE_ID";
-const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const SERVICE_ID = "service_htvhe9q";
+const TEMPLATE_ID = "template_63aecu4";
+const PUBLIC_KEY = "VtS8Ey0fe6lTId7ai";
 
 export default function Contact() {
   const sectionRef = useRef();
@@ -54,23 +54,23 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus("sending");
+const handleSubmit = (e) => {
+  e.preventDefault();
+  setStatus("sending");
 
-    emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
-      .then(() => {
-        setStatus("sent");
-        setForm({ name: "", email: "", subject: "", message: "" });
-        setTimeout(() => setStatus("idle"), 4000);
-      })
-      .catch((err) => {
-        console.error("EmailJS error:", err);
-        setStatus("error");
-        setTimeout(() => setStatus("idle"), 4000);
-      });
-  };
+  emailjs
+    .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+    .then(() => {
+      setStatus("sent");
+      setForm({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setStatus("idle"), 4000);
+    })
+    .catch((err) => {
+      console.error("EmailJS error:", err);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    });
+};
 
   return (
     <section className="contact" id="contact" ref={sectionRef}>
